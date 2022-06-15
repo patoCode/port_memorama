@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MEMOrama</string>
+    <string name="win">Felicidades, Ganaste!</string>
+    <string name="lose">Lo sentimos, perdiste!</string>
+    <string name="try_again">Intentalo otra vez!</string>
+    <string name="play_again">Juega otra vez!</string>
+    <string name="powered">Powered by ENDE TECNOLOGÍAS S.A.</string>
+    <string name="facil">FÁCIL</string>
+    <string name="intermedio">INTERMEDIO</string>
+    <string name="dificil">DIFÍCIL</string>
+
+</resources>

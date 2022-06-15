@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMainContainer"
+    android:background="@color/btn_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/mhe" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitEnd"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/ec_small"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llHeader"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:id="@+id/llControls"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/llScore"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_live"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:src="@drawable/point" />
+
+                <TextView
+                    android:id="@+id/tvScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/knewave"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    tools:text="15" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnReset"
+                android:layout_width="@dimen/btn_control"
+                android:layout_height="@dimen/btn_control"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_btn_reset"
+                android:clickable="true"
+                android:elevation="2dp"
+                android:src="@drawable/ic_refresh"
+                android:tint="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/llContainerLive"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_live"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:src="@drawable/heart" />
+
+                <TextView
+                    android:id="@+id/tvLive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/knewave"
+                    android:text="3"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llTablero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/mbtLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    app:checkedButton="@+id/btnEasy"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEasy"
+                        style="@style/selector_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/facil" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMedium"
+                        style="@style/selector_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/intermedio" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHard"
+                        style="@style/selector_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dificil" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <TableLayout
+                    android:id="@+id/tbContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mbtLevel"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+
+                        >
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib11"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF11"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib12"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF12"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib13"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF13"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib14"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF14"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib21"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF21"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib22"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF22"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib23"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF23"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib24"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF24"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib31"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF31"
+                                style="@style/cards_background_tv"
+                                android:layout_column="0"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib32"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF32"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib33"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF33"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+                        <com.wajahatkarim3.easyflipview.EasyFlipView
+                            android:id="@+id/easyFlipView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:autoFlipBack="false"
+                            app:autoFlipBackTime="1000"
+                            app:flipDuration="400"
+                            app:flipEnabled="true"
+                            app:flipFrom="back"
+                            app:flipOnTouch="false"
+                            app:flipType="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/ib34"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+
+                            <ImageButton
+                                android:id="@+id/ibF34"
+                                style="@style/cards_background_tv"
+                                android:layout_column="1"
+                                android:background="@null"
+                                android:clickable="true"
+                                tools:background="@color/teal_200" />
+                        </com.wajahatkarim3.easyflipview.EasyFlipView>
+                    </TableRow>
+
+                </TableLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnReset"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/powered"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

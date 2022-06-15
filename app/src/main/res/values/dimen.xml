@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_width_phone">70dp</dimen>
+    <dimen name="card_width_tv">180dp</dimen>
+    <dimen name="btn_control_phone">40dp</dimen>
+    <dimen name="btn_control">56dp</dimen>
+    <dimen name="btn_power">56dp</dimen>
+</resources>
